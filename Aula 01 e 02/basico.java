@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class basico {
   public static void main(String args[]) {
 
+    aula();
     //exercicio1();
     //exercicio2();
     //exercicio3();
@@ -19,6 +20,20 @@ public class basico {
     //exercicio14();
     //exercicio15();
   }
+
+  private static void aula (){
+    double altura = 5;
+    double comprimento = 5;
+    double base = 5;
+
+    double resultado = (altura*comprimento*base);
+    
+    System.out.println("Valor: R$"+ resultado*100);
+
+  }
+
+
+
 
   //Crie um programa e apresente o Ola mundo na tela
   private static void exercicio1 (){
