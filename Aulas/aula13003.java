@@ -8,7 +8,7 @@ public class aula13003 {
         //exercicio1();
         //exercicio2();
         //exercicio3();
-        //exercicio4();
+        exercicio4();
         //exercicio5();
         //exercicio6();
         //exercicio7();
@@ -75,10 +75,13 @@ public class aula13003 {
                 break;
             }
         }
-        if(primo)
+        if(primo){
             System.out.println(numero + " é primo.");
-        else
+        }
+        else{
             System.out.println(numero + " não é primo.");
+        }
+            
     }
 
     private static void exercicio5 () {
