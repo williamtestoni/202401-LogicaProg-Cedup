@@ -1,10 +1,23 @@
 package Aulas;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class aula13003 {
     public static void main(String args[]) {
 
+        /*
+            Exercício 1: Verificar se um número é positivo, negativo ou zero
+            Exercício 2: Imprimir os números pares de 1 a 10
+            Exercício 3: Calcular o fatorial de um número
+            Exercício 4: Verificar se um número é primo
+            Exercício 5: Calcular o somatório dos números de 1 a 100
+            Exercício 6: Verificar se um número é par ou ímpar utilizando switch-case
+            Exercício 7: Imprimir os números de 1 a 10 utilizando while
+            Exercício 8: Calcular a média de 5 números, usando for para solicitar cada número
+            Exercício 9: Contar de 10 a 1 utilizando for
+            Exercício 10: Verificar se um ano é bissexto ou não
+         */
         //exercicio1();
         //exercicio2();
         //exercicio3();
@@ -16,6 +29,19 @@ public class aula13003 {
         //exercicio9();
         //exercicio10();
         
+        /*
+            Exercício 11: Calcular a potência de um número
+            Exercício 12: Verificar se um ano é um ano de copa do mundo (considerando a periodicidade de 4 anos) - Comecou 1930
+            Exercício 13: Imprimir os números de 0 a 20, pulando de 2 em 2
+            Exercício 14: Calcular o somatório dos números pares de 1 a 50
+            Exercício 15: Calcular a média dos números pares de 1 a 100
+            Exercício 16: Imprimir a tabuada de um número digitado pelo usuário
+            Exercício 17: Calcular o fatorial de um número utilizando while
+            Exercício 18: Verificar se um caractere é uma vogal ou uma consoante
+            Exercício 19: Simular o lançamento de um dado e imprimir o resultado - Usar metodo Random()
+            Exercício 20: Calcular a média dos números ímpares de 1 a 100
+         */
+
         //exercicio11();
         //exercicio12();
         //exercicio13();
@@ -49,7 +75,6 @@ public class aula13003 {
             }
         }
     }
-
     
     private static void exercicio3 () {
         Scanner scanner = new Scanner(System.in);
@@ -161,19 +186,13 @@ public class aula13003 {
 
     private static void exercicio12 () {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um número: ");
-        int numero = scanner.nextInt();
+        System.out.println("Digite um ano: ");
+        int ano = scanner.nextInt();
 
-        int somaDivisores = 0;
-        for(int i = 1; i < numero; i++) {
-            if(numero % i == 0) {
-                somaDivisores += i;
-            }
-        }
-        if(somaDivisores == numero) {
-            System.out.println(numero + " é um número perfeito.");
+        if((ano - 1930) % 4 == 0) {
+            System.out.println(ano + " é um ano de Copa do Mundo.");
         } else {
-            System.out.println(numero + " não é um número perfeito.");
+            System.out.println(ano + " não é um ano de Copa do Mundo.");
         }
     }
 
@@ -242,22 +261,9 @@ public class aula13003 {
     }
 
     private static void exercicio19 () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um número: ");
-        int numero = scanner.nextInt();
-
-        boolean quadradoPerfeito = false;
-        for(int i = 1; i <= numero; i++) {
-            if(i * i == numero) {
-                quadradoPerfeito = true;
-                break;
-            }
-        }
-        if(quadradoPerfeito) {
-            System.out.println(numero + " é um quadrado perfeito.");
-        } else {
-            System.out.println(numero + " não é um quadrado perfeito.");
-        }
+        Random random = new Random();
+        int resultado = random.nextInt(6) + 1; // números de 1 a 6
+        System.out.println("O dado foi lançado e o resultado foi: " + resultado);
     }
 
     private static void exercicio20 () {
@@ -272,5 +278,6 @@ public class aula13003 {
         double media = (double) soma / contador;
         System.out.println("A média dos números ímpares de 1 a 100 é: " + media);
     }
+
 
 }
