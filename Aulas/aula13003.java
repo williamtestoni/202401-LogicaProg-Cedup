@@ -1,11 +1,13 @@
 package Aulas;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.Scanner;
 
 public class aula13003 {
     public static void main(String args[]) {
-
         /*
             Exercício 1: Verificar se um número é positivo, negativo ou zero
             Exercício 2: Imprimir os números pares de 1 a 10
@@ -21,7 +23,7 @@ public class aula13003 {
         //exercicio1();
         //exercicio2();
         //exercicio3();
-        exercicio4();
+        //exercicio4();
         //exercicio5();
         //exercicio6();
         //exercicio7();
@@ -30,18 +32,17 @@ public class aula13003 {
         //exercicio10();
         
         /*
-            Exercício 11: Calcular a potência de um número
-            Exercício 12: Verificar se um ano é um ano de copa do mundo (considerando a periodicidade de 4 anos) - Comecou 1930
-            Exercício 13: Imprimir os números de 0 a 20, pulando de 2 em 2
-            Exercício 14: Calcular o somatório dos números pares de 1 a 50
-            Exercício 15: Calcular a média dos números pares de 1 a 100
-            Exercício 16: Imprimir a tabuada de um número digitado pelo usuário
-            Exercício 17: Calcular o fatorial de um número utilizando while
-            Exercício 18: Verificar se um caractere é uma vogal ou uma consoante
-            Exercício 19: Simular o lançamento de um dado e imprimir o resultado - Usar metodo Random()
-            Exercício 20: Calcular a média dos números ímpares de 1 a 100
+            Exercício 11: Imprimir os números de 0 a 20, pulando de 2 em 2
+            Exercício 12: Calcular o somatório dos números pares de 1 a 50
+            Exercício 13: Calcular a média dos números pares de 1 a 100
+            Exercício 14: Imprimir a tabuada de um número digitado pelo usuário
+            Exercício 15: Verificar se um caractere é uma vogal ou uma consoante
+            Exercício 16: Calcular a média dos números ímpares de 1 a 100
+            Exercício 17: Verificar se um ano é um ano de copa do mundo (considerando a periodicidade de 4 anos, e a primeira copa ocorreu em 1930)
+            Exercício 18: Simular o lançamento de um dado e imprimir o resultado
+            Exercício 19: Calcular o IMC (Índice de Massa Corporal) de uma pessoa
+            Exercício 20: Simular uma calculadora básica com as operações de adição, subtração, multiplicação e divisão (usando switch)
          */
-
         //exercicio11();
         //exercicio12();
         //exercicio13();
@@ -52,6 +53,12 @@ public class aula13003 {
         //exercicio18();
         //exercicio19();
         //exercicio20();
+        //jogoAdivinhacao();
+
+        //exercicio21();
+        //exercicio22();
+        //exercicio23();
+        exercicio24();
       }
 
     private static void exercicio1 () {
@@ -171,38 +178,13 @@ public class aula13003 {
     }
 
     private static void exercicio11 () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite a base: ");
-        double base = scanner.nextDouble();
-        System.out.println("Digite o expoente: ");
-        int expoente = scanner.nextInt();
-
-        double resultado = 1;
-        for(int i = 0; i < expoente; i++) {
-            resultado *= base;
-        }
-        System.out.println("O resultado de " + base + " elevado a " + expoente + " é: " + resultado);
-    }
-
-    private static void exercicio12 () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um ano: ");
-        int ano = scanner.nextInt();
-
-        if((ano - 1930) % 4 == 0) {
-            System.out.println(ano + " é um ano de Copa do Mundo.");
-        } else {
-            System.out.println(ano + " não é um ano de Copa do Mundo.");
-        }
-    }
-
-    private static void exercicio13 () {
         for(int i = 0; i <= 20; i += 2) {
             System.out.println(i);
         }
     }
 
-    private static void exercicio14 () {
+    //Exercício 12: Calcular o somatório dos números pares de 1 a 50
+    private static void exercicio12 () {
         int soma = 0;
         for(int i = 2; i <= 50; i += 2) {
             soma += i;
@@ -210,6 +192,32 @@ public class aula13003 {
         System.out.println("A soma dos números pares de 1 a 50 é: " + soma);
     }
 
+    //Exercício 13: Calcular a média dos números pares de 1 a 100
+    private static void exercicio13 () {
+        int soma = 0;
+        int contador = 0;
+        for(int i = 1; i <= 100; i++) {
+            if(i % 2 == 0) {
+                soma += i;
+                contador++;
+            }
+        }
+        double media = (double) soma / contador;
+        System.out.println("A média dos números pares de 1 a 100 é: " + media);
+    }
+
+    //Exercício 14: Imprimir a tabuada de um número digitado pelo usuário
+    private static void exercicio14 () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite um número: ");
+        int numero = scanner.nextInt();
+
+        for(int i = 1; i <= 10; i++) {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+    }
+
+    //Exercício 15: Verificar se um caractere é uma vogal ou uma consoante
     private static void exercicio15 () {
         int soma = 0;
         int contador = 0;
@@ -223,31 +231,8 @@ public class aula13003 {
         System.out.println("A média dos números pares de 1 a 100 é: " + media);
     }
 
+    //Exercício 15: Verificar se um caractere é uma vogal ou uma consoante
     private static void exercicio16 () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um número: ");
-        int numero = scanner.nextInt();
-
-        for(int i = 1; i <= 10; i++) {
-            System.out.println(numero + " x " + i + " = " + (numero * i));
-        }
-    }
-
-    private static void exercicio17 () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite um número: ");
-        int numero = scanner.nextInt();
-
-        int fatorial = 1;
-        int i = 1;
-        while(i <= numero) {
-            fatorial *= i;
-            i++;
-        }
-        System.out.println("O fatorial de " + numero + " é: " + fatorial);
-    }
-
-    private static void exercicio18 () {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite um caractere: ");
         char caractere = scanner.next().charAt(0);
@@ -260,24 +245,156 @@ public class aula13003 {
         }
     }
 
-    private static void exercicio19 () {
+    //Exercício 17: Verificar se um ano é um ano de copa do mundo 
+    //(considerando a periodicidade de 4 anos, e a primeira copa ocorreu em 1930)
+    private static void exercicio17 () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite um ano: ");
+        int ano = scanner.nextInt();
+
+        if((ano - 1930) % 4 == 0) {
+            System.out.println(ano + " é um ano de Copa do Mundo.");
+        } else {
+            System.out.println(ano + " não é um ano de Copa do Mundo.");
+        }
+    }
+
+    //Exercício 18: Simular o lançamento de um dado e imprimir o resultado
+    private static void exercicio18 () {
         Random random = new Random();
         int resultado = random.nextInt(6) + 1; // números de 1 a 6
         System.out.println("O dado foi lançado e o resultado foi: " + resultado);
     }
 
+    //Exercício 19: Calcular o IMC (Índice de Massa Corporal) de uma pessoa
+    private static void exercicio19 () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o peso em kg: ");
+        double peso = scanner.nextDouble();
+        System.out.println("Digite a altura em metros: ");
+        double altura = scanner.nextDouble();
+
+        double imc = peso / (altura * altura);
+        System.out.println("O IMC é: " + imc);
+    }
+
+    //Exercício 20: Simular uma calculadora básica com as operações de adição, subtração, multiplicação e divisão (usando switch)
     private static void exercicio20 () {
-        int soma = 0;
-        int contador = 0;
-        for(int i = 1; i <= 100; i++) {
-            if(i % 2 != 0) {
-                soma += i;
-                contador++;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o primeiro número: ");
+        double numero1 = scanner.nextDouble();
+        System.out.println("Digite o segundo número: ");
+        double numero2 = scanner.nextDouble();
+
+        System.out.println("Escolha a operação:");
+        System.out.println("1. Adição");
+        System.out.println("2. Subtração");
+        System.out.println("3. Multiplicação");
+        System.out.println("4. Divisão");
+        int escolha = scanner.nextInt();
+
+        double resultado = 0;
+        switch(escolha) {
+            case 1:
+                resultado = numero1 + numero2;
+                break;
+            case 2:
+                resultado = numero1 - numero2;
+                break;
+            case 3:
+                resultado = numero1 * numero2;
+                break;
+            case 4:
+                if(numero2 != 0)
+                    resultado = numero1 / numero2;
+                else
+                    System.out.println("Erro: divisão por zero.");
+                break;
+            default:
+                System.out.println("Opção inválida.");
+        }
+
+        System.out.println("O resultado da operação é: " + resultado);
+    }
+
+    private static void jogoAdivinhacao (){
+        Random random = new Random();
+        int numeroSecreto = random.nextInt(100) + 1; // número de 1 a 100
+        Scanner scanner = new Scanner(System.in);
+        int tentativas = 0;
+        
+        while(true) {
+            System.out.println("Tente adivinhar o número: ");
+            int palpite = scanner.nextInt();
+            tentativas++;
+            
+            if(palpite == numeroSecreto) {
+                System.out.println("Parabéns! Você acertou em " + tentativas + " tentativas.");
+                break;
+            } else if(palpite < numeroSecreto) {
+                System.out.println("Tente um número maior.");
+            } else {
+                System.out.println("Tente um número menor.");
             }
         }
-        double media = (double) soma / contador;
-        System.out.println("A média dos números ímpares de 1 a 100 é: " + media);
+    }
+
+    //Exercício 21: Inverter uma string
+    private static void exercicio21(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite uma string: ");
+        String str = scanner.nextLine();
+        
+        String invertida = "";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            invertida += str.charAt(i);
+        }
+        
+        System.out.println("A string invertida é: " + invertida);
+    }
+
+    //Exercício 22: Calcular o número de dias entre duas datas
+    private static void exercicio22(){
+        Scanner scanner = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        System.out.print("Digite a primeira data (dd/MM/yyyy): ");
+        String data1Str = scanner.nextLine();
+        LocalDate data1 = LocalDate.parse(data1Str, formatter);
+        
+        System.out.print("Digite a segunda data (dd/MM/yyyy): ");
+        String data2Str = scanner.nextLine();
+        LocalDate data2 = LocalDate.parse(data2Str, formatter);
+        
+        long dias = ChronoUnit.DAYS.between(data1, data2);
+        
+        System.out.println("Número de dias entre as datas: " + Math.abs(dias));
     }
 
 
+    private static void exercicio23(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite o número de linhas da pirâmide: ");
+        int linhas = scanner.nextInt();
+
+        for (int i = 1; i <= linhas; i++) {
+            for (int j = 1; j <= linhas - i; j++) {
+                System.out.print("  ");
+            }
+            for (int k = 1; k <= 2 * i - 1; k++) {
+                System.out.print(k + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
+    private static void exercicio24(){
+        
+    }
+
+
+    private static void exercicio25(){
+    
+    }
 }
